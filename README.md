@@ -1,5 +1,7 @@
 # Deployment Guide: GitHub Pages
 
+Live site: https://dinesh23244.github.io/
+
 ## Only 3 Steps to Online!
 
 Since this is a static website (HTML/CSS/JS), deploying it is extremely simple.
