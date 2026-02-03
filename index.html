@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Metagenomic Researcher</title>
+    <meta name="description"
+        content="Portfolio of a Metagenomic Researcher specializing in microbiome analysis and bioinformatics.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">Portfolio.</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#publications">Publications</a>
+                <div class="header-socials">
+                    <a href="https://github.com/Dinesh23244" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/dinesh-cb/" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="#contact" class="btn-primary">Contact Me</a>
+            </div>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="eyebrow">Hello, I'm</span>
+                    <h1>Dinesh Palanimuthu<br><span class="highlight">Metagenomic Researcher</span></h1>
+                    <p>Uncovering insights from the microbial world through data and bioinformatics.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn-primary">View Work</a>
+                        <a href="#contact" class="btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="blob"></div>
+                    <!-- Profile Image -->
+                    <div class="profile-placeholder">
+                        <img src="profile.jpg" alt="Dinesh"
+                            onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>My journey started with a hands-on foundation in Biotechnology, mastering microbiology and
+                            molecular techniques before transitioning to Computational Biology. During my Master’s, I
+                            built a robust 'dry-lab' toolkit—including Linux, R, and Python—to analyze complex
+                            metagenomic datasets.</p>
+                        <p>I now apply this dual expertise to Clinical Gut Metagenomics, focusing on high-resolution
+                            analysis of the gut microbiome to drive the next wave of biological endeavors.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">My Toolkit</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Wet Lab</h3>
+                        <div class="skill-tags">
+                            <span>Molecular Biology Techniques</span>
+                            <span>Microbiology Techniques</span>
+                            <span>PCR</span>
+                            <span>Enzyme Isolation</span>
+                            <span>Biofermentor Ops</span>
+                            <span>Plant Tissue Culture Techniques</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Computational Biology & Dry Lab</h3>
+                        <div class="skill-tags">
+                            <span>Metagenomic tools</span>
+                            <span>Data Analysis</span>
+                            <span>Machine Learning</span>
+                            <span>Python</span>
+                            <span>R</span>
+                            <span>Shell Scripting</span>
+                            <span>Linux Admin</span>
+                            <span>Git & GitHub</span>
+                            <span>RStudio Server</span>
+                            <span>Antigravity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Featured Works</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <!-- Placeholder -->
+                            <div class="img-placeholder" style="background: linear-gradient(45deg, #FF6B6B, #EE5D5D);">
+                                SPINGO</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>SPINGO Pipeline</h3>
+                            <p>Designed custom shell scripts to process 16S sequence files, following necessary steps
+                                for taxonomic classification as background processes on Linux-based systems and servers.
+                            </p>
+                            <div class="tech-stack">
+                                <span>Shell Scripting</span>
+
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <!-- Placeholder -->
+                            <div class="img-placeholder" style="background: linear-gradient(45deg, #4ECDC4, #556270);">
+                                MetaPhlan-3</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>MetaPhlan-3 Pipeline</h3>
+                            <p>Automated and parallelized pipeline designed to process multiple samples via MetaPhlan-3
+                                (Metagenomic Profiling Tool) on Linux-based systems and servers.</p>
+                            <div class="tech-stack">
+                                <span>Shell Scripting</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <!-- Placeholder -->
+                            <div class="img-placeholder" style="background: linear-gradient(45deg, #A8E6CF, #DCEDC1);">
+                                Data Repository</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Gut-Brain-Axis(GBA) Repo <span class="badge-wip">Dev</span></h3>
+                            <p>A curated collection of open source datasets for Gut-Brain Axis research.</p>
+                            <div class="tech-stack">
+                                <span>Data Science</span>
+                                <span>Microbiome</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Dinesh23244/Gut-Brain-Axis-Microbiome-Dataset-Metadata-and-Species-Profiles"
+                                    target="_blank"><i class="fab fa-github"></i> Repo</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Published Works Section -->
+        <section id="publications" class="section">
+            <div class="container">
+                <h2 class="section-title">Published Works <span class="badge-wip"
+                        style="background-color: var(--accent); color: var(--bg-color);">Review</span></h2>
+                <div class="projects-grid">
+                    <!-- Paper 1 -->
+                    <article class="project-card">
+                        <div class="project-info">
+                            <div style="margin-bottom: 1rem; color: var(--accent); font-family: monospace;">Paper 01
+                            </div>
+                            <h3>An apodictic review on recent approaches in enzyme technology</h3>
+                            <p>A comprehensive review of enzyme technology advancements published in Biointerface
+                                Research in Applied Chemistry.</p>
+                            <div class="tech-stack">
+                                <span>Enzyme Technology</span>
+                                <span>Review</span>
+                                <span>2021</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://doi.org/10.33263/BRIAC123.34463471" target="_blank"><i
+                                        class="fas fa-external-link-alt"></i> Read Review</a>
+                            </div>
+                            <p
+                                style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary); opacity: 0.8;">
+                                <i class="fas fa-users" style="margin-right: 5px;"></i> Authors: Ashok, Chithra; <strong
+                                    style="color: var(--accent);">Palanimuthu, Dinesh</strong>; et al.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Paper 2 -->
+                    <article class="project-card">
+                        <div class="project-info">
+                            <div style="margin-bottom: 1rem; color: var(--accent); font-family: monospace;">Paper 02
+                            </div>
+                            <h3>Gut Microbiota-Brain Axis in Healthy Ageing</h3>
+                            <p>Book chapter exploring the gut-brain connection in healthy ageing, published by Springer.
+                            </p>
+                            <div class="tech-stack">
+                                <span>Gut-Brain Axis</span>
+                                <span>Book Chapter</span>
+                                <span>2024</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://doi.org/10.1007/978-3-031-68513-2_8" target="_blank"><i
+                                        class="fas fa-external-link-alt"></i> Read Chapter</a>
+                            </div>
+                            <p
+                                style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary); opacity: 0.8;">
+                                <i class="fas fa-users" style="margin-right: 5px;"></i> Authors: Verma, Shivangi;
+                                <strong style="color: var(--accent);">Palanimuthu, Dinesh</strong>; et al.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-wrapper">
+                    <p class="contact-text">I welcome opportunities for research collaborations, scientific discourse,
+                        and innovative projects in metagenomics. Feel free to reach out to discuss how we can advance
+                        understanding of the microbial world together.</p>
+                    <a href="mailto:dinesh2biotech@gmail.com" class="btn-primary big-btn">Initiate Collaboration</a>
+                    <div class="social-links">
+                        <a href="https://github.com/Dinesh23244" target="_blank" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/dinesh-cb/" target="_blank" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Dinesh Palanimuthu. Built with HTML, CSS, and JS.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
