@@ -7,6 +7,24 @@
     <title>Portfolio | Metagenomic Researcher</title>
     <meta name="description"
         content="Portfolio of a Metagenomic Researcher specializing in microbiome analysis and bioinformatics.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dinesh23244.github.io/">
+    <meta property="og:title" content="Portfolio | Dinesh Palanimuthu - Metagenomic Researcher">
+    <meta property="og:description"
+        content="Uncovering insights from the microbial world through data and bioinformatics.">
+    <meta property="og:image" content="https://dinesh23244.github.io/profile.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dinesh23244.github.io/">
+    <meta property="twitter:title" content="Portfolio | Dinesh Palanimuthu - Metagenomic Researcher">
+    <meta property="twitter:description"
+        content="Uncovering insights from the microbial world through data and bioinformatics.">
+    <meta property="twitter:image" content="https://dinesh23244.github.io/profile.jpg">
+
+    <link rel="canonical" href="https://dinesh23244.github.io/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -55,7 +73,7 @@
                     <div class="blob"></div>
                     <!-- Profile Image -->
                     <div class="profile-placeholder">
-                        <img src="profile.jpg" alt="Dinesh"
+                        <img src="profile.jpg" alt="Dinesh" loading="lazy"
                             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'">
                     </div>
                 </div>
@@ -124,7 +142,7 @@
                     <article class="project-card">
                         <div class="project-image">
                             <!-- Placeholder -->
-                            <div class="img-placeholder" style="background: linear-gradient(45deg, #FF6B6B, #EE5D5D);">
+                            <div class="img-placeholder gradient-spingo">
                                 SPINGO</div>
                         </div>
                         <div class="project-info">
@@ -147,7 +165,7 @@
                     <article class="project-card">
                         <div class="project-image">
                             <!-- Placeholder -->
-                            <div class="img-placeholder" style="background: linear-gradient(45deg, #4ECDC4, #556270);">
+                            <div class="img-placeholder gradient-metaphlan">
                                 MetaPhlan-3</div>
                         </div>
                         <div class="project-info">
@@ -168,7 +186,7 @@
                     <article class="project-card">
                         <div class="project-image">
                             <!-- Placeholder -->
-                            <div class="img-placeholder" style="background: linear-gradient(45deg, #A8E6CF, #DCEDC1);">
+                            <div class="img-placeholder gradient-data">
                                 Data Repository</div>
                         </div>
                         <div class="project-info">
@@ -191,13 +209,12 @@
         <!-- Published Works Section -->
         <section id="publications" class="section">
             <div class="container">
-                <h2 class="section-title">Published Works <span class="badge-wip"
-                        style="background-color: var(--accent); color: var(--bg-color);">Review</span></h2>
+                <h2 class="section-title">Published Works <span class="badge-wip badge-review">Review</span></h2>
                 <div class="projects-grid">
                     <!-- Paper 1 -->
                     <article class="project-card">
                         <div class="project-info">
-                            <div style="margin-bottom: 1rem; color: var(--accent); font-family: monospace;">Paper 01
+                            <div class="paper-id">Paper 01
                             </div>
                             <h3>An apodictic review on recent approaches in enzyme technology</h3>
                             <p>A comprehensive review of enzyme technology advancements published in Biointerface
@@ -211,10 +228,9 @@
                                 <a href="https://doi.org/10.33263/BRIAC123.34463471" target="_blank"><i
                                         class="fas fa-external-link-alt"></i> Read Review</a>
                             </div>
-                            <p
-                                style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary); opacity: 0.8;">
-                                <i class="fas fa-users" style="margin-right: 5px;"></i> Authors: Ashok, Chithra; <strong
-                                    style="color: var(--accent);">Palanimuthu, Dinesh</strong>; et al.
+                            <p class="paper-authors">
+                                <i class="fas fa-users"></i> Authors: Ashok, Chithra; <strong
+                                    class="author-highlight">Palanimuthu, Dinesh</strong>; et al.
                             </p>
                         </div>
                     </article>
@@ -222,7 +238,7 @@
                     <!-- Paper 2 -->
                     <article class="project-card">
                         <div class="project-info">
-                            <div style="margin-bottom: 1rem; color: var(--accent); font-family: monospace;">Paper 02
+                            <div class="paper-id">Paper 02
                             </div>
                             <h3>Gut Microbiota-Brain Axis in Healthy Ageing</h3>
                             <p>Book chapter exploring the gut-brain connection in healthy ageing, published by Springer.
@@ -236,10 +252,9 @@
                                 <a href="https://doi.org/10.1007/978-3-031-68513-2_8" target="_blank"><i
                                         class="fas fa-external-link-alt"></i> Read Chapter</a>
                             </div>
-                            <p
-                                style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary); opacity: 0.8;">
-                                <i class="fas fa-users" style="margin-right: 5px;"></i> Authors: Verma, Shivangi;
-                                <strong style="color: var(--accent);">Palanimuthu, Dinesh</strong>; et al.
+                            <p class="paper-authors">
+                                <i class="fas fa-users"></i> Authors: Verma, Shivangi;
+                                <strong class="author-highlight">Palanimuthu, Dinesh</strong>; et al.
                             </p>
                         </div>
                     </article>

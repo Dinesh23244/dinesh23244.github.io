@@ -586,3 +586,56 @@ footer {
         /* Larger touch targets on mobile */
     }
 }
+
+/* Utility Classes for Gradients */
+.gradient-spingo {
+    background: linear-gradient(45deg, #FF6B6B, #EE5D5D);
+}
+
+.gradient-metaphlan {
+    background: linear-gradient(45deg, #4ECDC4, #556270);
+}
+
+.gradient-data {
+    background: linear-gradient(45deg, #A8E6CF, #DCEDC1);
+}
+
+/* Badge Variants */
+.badge-review {
+    background-color: var(--accent) !important;
+    color: var(--bg-color) !important;
+}
+
+/* Publication Styles */
+.paper-id {
+    margin-bottom: 1rem;
+    color: var(--accent);
+    font-family: monospace;
+}
+
+.paper-authors {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.paper-authors i {
+    margin-right: 5px;
+}
+
+.author-highlight {
+    color: var(--accent);
+}
+
+/* Animations */
+section.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}

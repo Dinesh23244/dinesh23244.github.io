@@ -82,17 +82,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add CSS for animations via JS to keep styles clean
-const style = document.createElement('style');
-style.textContent = `
-    section.hidden {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    section.fade-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-`;
-document.head.appendChild(style);
+
