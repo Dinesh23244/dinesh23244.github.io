@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
     const header = document.getElementById('header');
-    
+
     // Header Scroll Effect
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerOffset = 70;
@@ -80,6 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
         section.classList.add('hidden');
         observer.observe(section);
     });
+
+    // Dynamic Copyright Year
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
 
 
