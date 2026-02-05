@@ -3,22 +3,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
     const header = document.getElementById('header');
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const yearSpan = document.getElementById('current-year');
 
-    // Header Scroll Effect
+    // Header Scroll Effect & Glassmorphism
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.style.boxShadow = '0 10px 30px -10px rgba(2, 12, 27, 0.7)';
-            header.style.backgroundColor = 'rgba(10, 25, 47, 0.95)';
+            header.classList.add('scrolled');
         } else {
-            header.style.boxShadow = 'none';
-            header.style.backgroundColor = 'transparent';
+            header.classList.remove('scrolled');
+        }
+
+        // Back to top visibility
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
         }
     });
 
     // Mobile Menu Toggle
     mobileToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        document.body.classList.toggle('nav-overlay-active'); // For background dimming if we add it
         const icon = mobileToggle.querySelector('i');
+
         if (navLinks.classList.contains('active')) {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-times');
@@ -29,25 +40,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    navItems.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
+            document.body.classList.remove('nav-overlay-active');
             const icon = mobileToggle.querySelector('i');
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
         });
     });
 
-    // Smooth Scrolling for Anchor Links (shim for older browsers, though html {scroll-behavior: smooth} handles most)
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') &&
+            !navLinks.contains(e.target) &&
+            !mobileToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+            document.body.classList.remove('nav-overlay-active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
+            // Only prevent default if it's a valid ID on the page
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const headerOffset = 70;
+                e.preventDefault();
+                const headerOffset = 70; // Adjust according to header height
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -59,30 +85,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Scroll Reveal Animation (Simple Intersection Observer)
+    // Back To Top Click
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Scroll Spy (Highlight active nav link)
     const observerOptions = {
+        root: null,
+        rootMargin: '-30% 0px -70% 0px', // Active when section is near top center
+        threshold: 0
+    };
+
+    const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Remove active class from all links
+                navItems.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${entry.target.id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        spyObserver.observe(section);
+    });
+
+    // Scroll Reveal Animation
+    const revealOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, revealOptions);
 
     // Add fade-in class to sections for animation
-    document.querySelectorAll('section').forEach(section => {
+    sections.forEach(section => {
         section.classList.add('hidden');
-        observer.observe(section);
+        revealObserver.observe(section);
     });
 
     // Dynamic Copyright Year
-    const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
