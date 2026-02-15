@@ -502,6 +502,47 @@ header .container {
     color: var(--accent);
 }
 
+/* DOI Badge */
+.doi-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(100, 255, 218, 0.05));
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-family: monospace;
+    color: var(--text-primary);
+    transition: var(--transition);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.1);
+}
+
+.doi-badge:hover {
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.15), rgba(100, 255, 218, 0.08));
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+    transform: translateY(-2px);
+}
+
+.doi-badge i {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.doi-badge a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.doi-badge a:hover {
+    text-decoration: underline;
+    color: #7fffd4;
+}
+
+
 /* Contact Section */
 .contact-wrapper {
     text-align: center;
