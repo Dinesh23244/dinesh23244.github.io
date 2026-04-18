@@ -146,10 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
-    // Dynamic Publications Fetcher
+    // Dynamic Publications Fetcher via ORCID API
     const publicationsGrid = document.getElementById('dynamic-publications-grid');
-    if (publicationsGrid) {
-        fetch('publications.json')
+    const orcidID = '0000-0001-9752-9434';
+    
+    if (publicationsGrid && orcidID) {
+        fetch(`https://pub.orcid.org/v3.0/${orcidID}/works`, {
+            headers: { 'Accept': 'application/json' }
+        })
             .then(response => {
                 if (!response.ok) throw new Error('Network error');
                 return response.json();
@@ -157,38 +161,59 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 publicationsGrid.innerHTML = ''; // Clear loading text
                 
-                if (data.publications && data.publications.length > 0) {
-                    data.publications.forEach((pub, index) => {
+                const worksGroups = data.group;
+                if (worksGroups && worksGroups.length > 0) {
+                    worksGroups.forEach((group, index) => {
+                        // ORCID groups works by external ID, usually the first summary is sufficient
+                        const workSummary = group['work-summary'][0];
+                        
+                        const title = workSummary.title.title.value;
+                        const journal = workSummary['journal-title'] ? workSummary['journal-title'].value : 'Independent Publication';
+                        const pubYear = workSummary['publication-date'] && workSummary['publication-date'].year ? workSummary['publication-date'].year.value : 'N/A';
+                        
+                        // Extract URL if available, fallback to DOI or ORCID path
+                        let pubUrl = '#';
+                        if (workSummary.url && workSummary.url.value) {
+                            pubUrl = workSummary.url.value;
+                        } else if (workSummary['external-ids'] && workSummary['external-ids']['external-id']) {
+                            const doiObj = workSummary['external-ids']['external-id'].find(id => id['external-id-type'] === 'doi');
+                            if (doiObj && doiObj['external-id-url']) {
+                                pubUrl = doiObj['external-id-url'].value;
+                            }
+                        }
+
                         const article = document.createElement('article');
                         article.className = 'project-card fade-in';
                         
-                        let formattedAuthors = pub.authors.replace(/Dinesh Palanimuthu/gi, '<strong class="author-highlight">Dinesh Palanimuthu</strong>');
+                        // Note: ORCID works summary endpoint doesn't return full co-author arrays natively.
+                        // We will display the Dinesh highlight and denote others dynamically.
+                        const authorsDisplay = '<strong class="author-highlight">Dinesh Palanimuthu</strong> et al.';
                         
                         article.innerHTML = `
                             <div class="project-info">
                                 <div class="paper-id">Paper ${String(index + 1).padStart(2, '0')}</div>
-                                <h3>${pub.title}</h3>
-                                <p>${pub.journal}</p>
+                                <h3>${title}</h3>
+                                <p>${journal}</p>
                                 <div class="tech-stack">
-                                    <span>${pub.year}</span>
+                                    <span>${pubYear}</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="${pub.url}" target="_blank"><i class="fas fa-external-link-alt"></i> Read Publication</a>
+                                    <a href="${pubUrl}" target="_blank"><i class="fas fa-external-link-alt"></i> Read Publication</a>
                                 </div>
                                 <p class="paper-authors">
-                                    <i class="fas fa-users"></i> Authors: ${formattedAuthors}
+                                    <i class="fas fa-users"></i> Authors: ${authorsDisplay}
                                 </p>
                             </div>
                         `;
                         publicationsGrid.appendChild(article);
                     });
                 } else {
-                    publicationsGrid.innerHTML = '<p>No publications found.</p>';
+                    publicationsGrid.innerHTML = '<p>No publications currently listed on ORCID.</p>';
                 }
             })
             .catch(error => {
                 console.error('Error loading publications:', error);
-                publicationsGrid.innerHTML = '<p>Error loading publications from database.</p>';
+                publicationsGrid.innerHTML = '<p>Error loading publications from ORCID database.</p>';
             });
     }
 });
