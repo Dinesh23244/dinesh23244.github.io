@@ -146,6 +146,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+    // Dynamic Publications Fetcher
+    const publicationsGrid = document.getElementById('dynamic-publications-grid');
+    if (publicationsGrid) {
+        fetch('publications.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Network error');
+                return response.json();
+            })
+            .then(data => {
+                publicationsGrid.innerHTML = ''; // Clear loading text
+                
+                if (data.publications && data.publications.length > 0) {
+                    data.publications.forEach((pub, index) => {
+                        const article = document.createElement('article');
+                        article.className = 'project-card fade-in';
+                        
+                        let formattedAuthors = pub.authors.replace(/Dinesh Palanimuthu/gi, '<strong class="author-highlight">Dinesh Palanimuthu</strong>');
+                        
+                        article.innerHTML = `
+                            <div class="project-info">
+                                <div class="paper-id">Paper ${String(index + 1).padStart(2, '0')}</div>
+                                <h3>${pub.title}</h3>
+                                <p>${pub.journal}</p>
+                                <div class="tech-stack">
+                                    <span>${pub.year}</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="${pub.url}" target="_blank"><i class="fas fa-external-link-alt"></i> Read Publication</a>
+                                </div>
+                                <p class="paper-authors">
+                                    <i class="fas fa-users"></i> Authors: ${formattedAuthors}
+                                </p>
+                            </div>
+                        `;
+                        publicationsGrid.appendChild(article);
+                    });
+                } else {
+                    publicationsGrid.innerHTML = '<p>No publications found.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading publications:', error);
+                publicationsGrid.innerHTML = '<p>Error loading publications from database.</p>';
+            });
+    }
 });
-
-

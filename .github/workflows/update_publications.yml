@@ -1,0 +1,44 @@
+name: Update Publications from Google Scholar
+
+on:
+  schedule:
+    # Runs at 00:00 every Sunday
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions UI
+
+permissions:
+  contents: write # Needed to commit the updated publications.json
+
+jobs:
+  update-publications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install scholarly
+        run: |
+          pip install scholarly
+
+      - name: Run Fetch Script
+        run: |
+          python fetch_scholar.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add publications.json
+          # Only commit and push if there are changes
+          if git diff --staged --quiet; then
+            echo "No new publications found. Skipping commit."
+          else
+            git commit -m "Auto-update publications.json from Google Scholar"
+            git push
+          fi
