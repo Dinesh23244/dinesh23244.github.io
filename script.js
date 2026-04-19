@@ -146,14 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
-    // Dynamic Publications Fetcher via ORCID API
+    // Dynamic Publications Fetcher via Cached ORCID Data
     const publicationsGrid = document.getElementById('dynamic-publications-grid');
-    const orcidID = '0000-0001-9752-9434';
     
-    if (publicationsGrid && orcidID) {
-        fetch(`https://pub.orcid.org/v3.0/${orcidID}/works`, {
-            headers: { 'Accept': 'application/json' }
-        })
+    if (publicationsGrid) {
+        fetch('publications.json') // Uses the locally cached JSON built by the automated GitHub script
             .then(response => {
                 if (!response.ok) throw new Error('Network error');
                 return response.json();
