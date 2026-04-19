@@ -11,7 +11,7 @@ def fetch_orcid_works():
     req = urllib.request.Request(URL, headers={'Accept': 'application/json'})
     
     try:
-        with urllib.request.urlopen(req) as response:
+        with urllib.request.urlopen(req, timeout=15) as response:
             if response.status == 200:
                 data = json.loads(response.read().decode('utf-8'))
                 
