@@ -1,8 +1,148 @@
 {
     "last-modified-date": {
-        "value": 1688490589498
+        "value": 1777538198264
     },
     "group": [
+        {
+            "last-modified-date": {
+                "value": 1777538198264
+            },
+            "external-ids": {
+                "external-id": [
+                    {
+                        "external-id-type": "doi",
+                        "external-id-value": "10.1007/978-3-031-68513-2_8",
+                        "external-id-normalized": {
+                            "value": "10.1007/978-3-031-68513-2_8",
+                            "transient": true
+                        },
+                        "external-id-normalized-error": null,
+                        "external-id-url": {
+                            "value": "https://doi.org/10.1007/978-3-031-68513-2_8"
+                        },
+                        "external-id-relationship": "self"
+                    }
+                ]
+            },
+            "work-summary": [
+                {
+                    "put-code": 213309273,
+                    "created-date": {
+                        "value": 1777538198264
+                    },
+                    "last-modified-date": {
+                        "value": 1777538198264
+                    },
+                    "source": {
+                        "source-orcid": {
+                            "uri": "https://orcid.org/0000-0001-9752-9434",
+                            "path": "0000-0001-9752-9434",
+                            "host": "orcid.org"
+                        },
+                        "source-client-id": null,
+                        "source-name": {
+                            "value": "DINESH"
+                        },
+                        "assertion-origin-orcid": null,
+                        "assertion-origin-client-id": null,
+                        "assertion-origin-name": null
+                    },
+                    "title": {
+                        "title": {
+                            "value": "Gut Microbiota-Brain Axis in Healthy Ageing"
+                        },
+                        "subtitle": null,
+                        "translated-title": null
+                    },
+                    "external-ids": {
+                        "external-id": [
+                            {
+                                "external-id-type": "doi",
+                                "external-id-value": "10.1007/978-3-031-68513-2_8",
+                                "external-id-normalized": {
+                                    "value": "10.1007/978-3-031-68513-2_8",
+                                    "transient": true
+                                },
+                                "external-id-normalized-error": null,
+                                "external-id-url": {
+                                    "value": "https://doi.org/10.1007/978-3-031-68513-2_8"
+                                },
+                                "external-id-relationship": "self"
+                            },
+                            {
+                                "external-id-type": "isbn",
+                                "external-id-value": "9783031685125",
+                                "external-id-normalized": {
+                                    "value": "9783031685125",
+                                    "transient": true
+                                },
+                                "external-id-normalized-error": null,
+                                "external-id-url": {
+                                    "value": "https://www.worldcat.org/isbn/9783031685125"
+                                },
+                                "external-id-relationship": "part-of"
+                            },
+                            {
+                                "external-id-type": "isbn",
+                                "external-id-value": "9783031685132",
+                                "external-id-normalized": {
+                                    "value": "9783031685132",
+                                    "transient": true
+                                },
+                                "external-id-normalized-error": null,
+                                "external-id-url": {
+                                    "value": "https://www.worldcat.org/isbn/9783031685132"
+                                },
+                                "external-id-relationship": "part-of"
+                            },
+                            {
+                                "external-id-type": "issn",
+                                "external-id-value": "2199-9007",
+                                "external-id-normalized": {
+                                    "value": "2199-9007",
+                                    "transient": true
+                                },
+                                "external-id-normalized-error": null,
+                                "external-id-url": {
+                                    "value": "https://portal.issn.org/resource/ISSN/2199-9007"
+                                },
+                                "external-id-relationship": "part-of"
+                            },
+                            {
+                                "external-id-type": "issn",
+                                "external-id-value": "2199-9015",
+                                "external-id-normalized": {
+                                    "value": "2199-9015",
+                                    "transient": true
+                                },
+                                "external-id-normalized-error": null,
+                                "external-id-url": {
+                                    "value": "https://portal.issn.org/resource/ISSN/2199-9015"
+                                },
+                                "external-id-relationship": "part-of"
+                            }
+                        ]
+                    },
+                    "url": {
+                        "value": "http://dx.doi.org/10.1007/978-3-031-68513-2_8"
+                    },
+                    "type": "book-chapter",
+                    "publication-date": {
+                        "year": {
+                            "value": "2024"
+                        },
+                        "month": null,
+                        "day": null
+                    },
+                    "journal-title": {
+                        "value": "Healthy Ageing and Longevity"
+                    },
+                    "visibility": "public",
+                    "path": "/0000-0001-9752-9434/work/213309273",
+                    "display-index": "0"
+                }
+            ]
+        },
         {
             "last-modified-date": {
                 "value": 1688490589498
